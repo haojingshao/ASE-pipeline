@@ -42,11 +42,6 @@ biopython
 	
 	3.2 Count the number of read for each single nucleotide mismatch
 
-### Prepare data
-
-reference genome
-
-vcf for parent1 and parent2
 
 ### Usage
 ```
@@ -76,6 +71,10 @@ Options:
 --samtools STR      Path for samtools [samtools]
 --bedtools STR      Path for bedtools [bedtools]
 ```
+
+### Example
+Example data and script are provided in TestData. 
+`cd example; sh MyTest.sh`
 
 ### Contact
 Email: uqhshao at uq.edu.au or haojingshao at gmail.com
