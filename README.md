@@ -1,35 +1,49 @@
-# pipeline for Detecting Allele Specific Expression
+# A pipeline for Detecting Allele Specific Expression
 Data:   RNA-seq data
-Source: Allim(https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3739924/) and Feat et.al 2016(https://www.genetics.org/content/203/3/1177).
+ 
+Source: [Allim](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3739924/) and [Feat et.al 2016](https://www.genetics.org/content/203/3/1177).
+ 
 Goal:	This pipeline is designed to detect allele specific expression difference in population RNA-seq data.
 
-# Installation
-Download
+### Installation
+ 
+Download the files.
 
-# Requirement
+### Requirement
 bamtools
+ 
 samtools
+ 
 bedtools
+ 
 hisat2
+ 
 biopython
 
-# Pipeline workflow
+### Pipeline workflow
+
 1 Extract all the homologous single nucleotide mismatches from two parents
+
 2 Replace all these sites into 'N' and generate a masked reference
+
 3 Estimate mapping bias by simulation.
+
 	3.1 Generate reference sequence for two parents by replacing mismatches
+	
 	3.2 Simulate non-error short reads from two parents
+	
 	3.3 Align two parents simulated reads to the masked reference
+	
 	3.4 Count the number of read for each single nucleotide mismatch
+
 4 Estimate the expression for each exon mismatch
+
 	3.1 Align all the raw data to the masked reference
+	
 	3.2 Count the number of read for each single nucleotide mismatch
 
-# Prepare data
-reference genome
-vcf for parent1 and parent2
 
-# Usage
+### Usage
 ```
 Usage: ./pipeline.pl --vcf1 --vcf2 --ref --fastq --outDir --bin --exon
 Options:
@@ -58,8 +72,12 @@ Options:
 --bedtools STR      Path for bedtools [bedtools]
 ```
 
-# Contact
+### Example
+Example data and script are provided in TestData. 
+`cd example; sh MyTest.sh`
+
+### Contact
 Email: uqhshao at uq.edu.au or haojingshao at gmail.com
 
-# Citation
+### Citation
 Manuscript in preparation.
