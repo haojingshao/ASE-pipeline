@@ -73,7 +73,7 @@ Options:
 ```
 
 ### Example
-Example data and script are provided in TestData. 
+Example data and script are provided in "example" directory. 
 `cd example; sh example.sh`
 
 ### Result
