@@ -84,8 +84,8 @@ print $simulateh "java -jar $options{'path'}/bin/GenomeAnalysisTK.jar -T FastaAl
 print $simulateh "python $options{'path'}/bin/Simulation.py ./ $options{'vcf1Name'} $options{'vcf2Name'} $options{'vcf1Name'}.fasta $options{'vcf2Name'}.fasta $options{'readlength'} $options{'insertsize'}\n";
 print $simulateh "cd ../..\n".GenerateAlignmentShell("$options{'outDir'}/simulation/$options{'vcf1Name'}_1.fq","$options{'outDir'}/simulation/$options{'vcf1Name'}_2.fq",$options{'vcf1Name'},"$ref");
 print $simulateh "cd ../..\n".GenerateAlignmentShell("$options{'outDir'}/simulation/$options{'vcf2Name'}_1.fq","$options{'outDir'}/simulation/$options{'vcf2Name'}_2.fq",$options{'vcf2Name'},"$ref");
-print $simulateh "cd ../\necho \"chromosome site Parent1Allele1 Parent1Allele2 Parent2Allele1 Parent2Allele2 exonID geneID\" > simulation.table\n";
-print $simulateh "paste $options{'vcf1Name'}/Fear2016.snp $options{'vcf1Name'}/Fear2016.snp |awk \'{print \$1,\$2,\$3,\$4,\$10,\$11,\$6,\$7}\' >> simulation.table\n";
+print $simulateh "cd ../\necho \"chromosome site Parent1Allele1 Parent1Allele2 Parent2Allele1 Parent2Allele2 exonID geneID\" > simulation.csv\n";
+print $simulateh "paste $options{'vcf1Name'}/Fear2016.snp $options{'vcf1Name'}/Fear2016.snp |awk \'{print \$1,\$2,\$3,\$4,\$10,\$11,\$6,\$7}\' >> simulation.csv\n";
 close $simulateh;
 $cmd.="sh $options{'outDir'}/qsub-simulate.sh\n";
 if($mode eq "run"){print "#Generating shell for each alignment. You may qsub each shell.\n";}
@@ -107,10 +107,10 @@ for (my $i=1;$i<scalar @$info;$i++){
 Cmd($cmd,2);
 close $snph;
 close $depthh;
-$cmd="perl $options{'path'}/bin/MakeSNPTable.pl snp.list depth.list $options{'outDir'}/ASE.table $options{'fastq'}\n";
+$cmd="perl $options{'path'}/bin/MakeSNPTable.pl snp.list depth.list $options{'outDir'}/ASE.csv $options{'fastq'}\n";
 Cmd($cmd,3);
 my $len=(scalar @$info)-1;
-$cmd="perl $options{'path'}/bin/FilterExpressExon.pl $options{'outDir'}/ASE.table $len > $options{'outDir'}/ASE.table.expressedExon 2> $options{'outDir'}/ASE.table.stat \n";
+$cmd="perl $options{'path'}/bin/FilterExpressExon.pl $options{'outDir'}/ASE.csv $len > $options{'outDir'}/ASE.csv.expressedExon 2> $options{'outDir'}/ASE.csv.stat \n";
 Cmd($cmd,3);
 if($mode eq "run"){print "End of the program.\n";}
 else{print "Scripts (step*sh) are generated.\n"}
