@@ -27,9 +27,7 @@ Options:
 --hisat2 STR        Path for hisat2 [hisat2]
 --hisat2-build STR  Path for hisat2-build [histat2-build]
 --samtools STR      Path for samtools [samtools]
---bedtools STR      Path for bedtools [bedtools]
-Example: 
-$0 --vcf1=TestData/P1.vcf --vcf2=TestData/P2.vcf --ref=TestData/ref.fa --fastq=TestData/list --vcf1Name=190 --vcf2Name=226 --outDir=TestOut --cpu=8 --path=/home/uqhshao/30days/FruitFly/pipeline/github/bin/ --exon=TestData/exon.bed --hisat2=/sw/QFAB/installs/hisat2/hisat2-2.1.0/hisat2 --hisat2-build=/sw/QFAB/installs/hisat2/hisat2-2.1.0/hisat2-build --samtools=/opt/biotools/samtools/1.3/bin/samtools --bedtools=/opt/biotools/bedtools/bin/bedtools\n";
+--bedtools STR      Path for bedtools [bedtools]\n";
 
 our %options;
 GetOptions( \%options, 'path=s','vcf1=s' ,'vcf2=s','ref=s','fastq=s','vcf1Name:s','vcf2Name:s','outDir=s','cpu:i','exon=s','hisat2:s','hisat2-build:s','samtools:s','bedtools:s','mode:s','readlength:i','insertsize:i');
