@@ -20,7 +20,7 @@ while(<$h>){
 	}
 }
 close $h;
-print STDERR "ExonID\tNumberOfExpressedSample\n"
+print STDERR "ExonID\tNumberOfExpressedSample\n";
 for my $exonID (keys %exon){
 	print STDERR $exonID,"\t",scalar(keys %{$exon{$exonID}}),"\n";
 #	if ((scalar (keys %{$exon{$exonID}})) == $numberOfSample){
