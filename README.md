@@ -3,7 +3,7 @@ Data:   RNA-seq data
  
 Source: [Allim](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3739924/) and [Fear et.al 2016](https://www.genetics.org/content/203/3/1177).
  
-Goal:	This pipeline is designed to detect allele specific expression difference in population RNA-seq data.
+Goal:	This pipeline is designed to detect allele specific expression in population RNA-seq data.
 
 ### Installation
  
