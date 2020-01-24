@@ -107,10 +107,10 @@ for (my $i=1;$i<scalar @$info;$i++){
 Cmd($cmd,2);
 close $snph;
 close $depthh;
-$cmd="perl $options{'path'}/bin/MakeSNPTable.pl snp.list depth.list $options{'outDir'}/table $options{'fastq'}\n";
+$cmd="perl $options{'path'}/bin/MakeSNPTable.pl snp.list depth.list $options{'outDir'}/ASE.table $options{'fastq'}\n";
 Cmd($cmd,3);
 my $len=(scalar @$info)-1;
-$cmd="perl $options{'path'}/bin/FilterExpressExon.pl $options{'outDir'}/table.SNP.Fear2016.hisat2.table $len > $options{'outDir'}/table.SNP.Fear2016.hisat2.table.expressedExon 2> $options{'outDir'}/table.SNP.Fear2016.hisat2.table.stat \n";
+$cmd="perl $options{'path'}/bin/FilterExpressExon.pl $options{'outDir'}/ASE.table $len > $options{'outDir'}/ASE.table.expressedExon 2> $options{'outDir'}/ASE.table.stat \n";
 Cmd($cmd,3);
 if($mode eq "run"){print "End of the program.\n";}
 else{print "Scripts (step*sh) are generated.\n"}

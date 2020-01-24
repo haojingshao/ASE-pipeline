@@ -12,7 +12,7 @@ my $appendArray=ReadAppend($append);
 my $s=OpenList($snpList);
 my $n=OpenList($nonList);
 my $outHandleSNP;
-open $outHandleSNP, ">$out.SNP.Fear2016.hisat2.table" or die $!;
+open $outHandleSNP, ">$out" or die $!;
 
 #print $outHandleSVExon "feature_id\tParent1_hybrid\tParent2_hybrid\tSample\tExon_expression\tRun\tLine_sex\tSex\tLine\n";
 print $outHandleSNP "chromosome\tsite\tParent1_hybrid\tParent2_hybrid\tOtherAllele\texon_id\tgene_id\tExon_expression\tGene_expression\t$$appendArray[0]\n";
