@@ -18,7 +18,7 @@ bedtools
  
 hisat2
  
-biopython
+biopython, numpy, collections (python)
 
 ### Pipeline workflow
 
