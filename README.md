@@ -74,8 +74,25 @@ Options:
 
 ### Example
 Example data and script are provided in TestData. 
-`cd example; sh MyTest.sh`
+`cd example; sh example.sh`
 
+### Result
+
+simulation.csv
+
+```
+chromosome	site	Parent1Allele1	Parent1Allele2	Parent2Allele1	Parent2Allele2	exonID	geneID
+scf4459	10579	290	0	0	299	maker-scf4459-snap-gene-0.23-mRNA-1_exon_2	maker-scf4459-snap-gene-0.23
+scf4459	10766	294	0	0	291	maker-scf4459-snap-gene-0.23-mRNA-1_exon_3	maker-scf4459-snap-gene-0.23
+```
+
+ASE.csv
+
+```
+chromosome	site	Parent1_hybrid	Parent2_hybrid	OtherAllele	exon_id	gene_id	Exon_expression	Gene_expression	Run	line	id
+scf4459	10579	16	0	0	maker-scf4459-snap-gene-0.23-mRNA-1_exon_2	maker-scf4459-snap-gene-0.23	20	264	Run_1	33	1
+scf4459	13114	1	0	0	maker-scf4459-snap-gene-0.23-mRNA-10_exon_4	maker-scf4459-snap-gene-0.23	26	264	Run_1	33	1
+```
 ### Contact
 Email: uqhshao at uq.edu.au or haojingshao at gmail.com
 
