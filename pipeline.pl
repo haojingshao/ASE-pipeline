@@ -83,7 +83,7 @@ print $simulateh "python $options{'path'}/bin/Simulation.py ./ $options{'vcf1Nam
 print $simulateh "cd ../..\n".GenerateAlignmentShell("$options{'outDir'}/simulation/$options{'vcf1Name'}_1.fq","$options{'outDir'}/simulation/$options{'vcf1Name'}_2.fq",$options{'vcf1Name'},"$ref");
 print $simulateh "cd ../..\n".GenerateAlignmentShell("$options{'outDir'}/simulation/$options{'vcf2Name'}_1.fq","$options{'outDir'}/simulation/$options{'vcf2Name'}_2.fq",$options{'vcf2Name'},"$ref");
 print $simulateh "cd ../\necho -e \"chromosome\\tsite\\tParent1Allele1\\tParent1Allele2\\tParent2Allele1\\tParent2Allele2\\texonID\\tgeneID\" > simulation.csv\n";
-print $simulateh "paste $options{'vcf1Name'}/Fear2016.snp $options{'vcf1Name'}/Fear2016.snp |awk \'{print \$1\"\\t\"\$2\"\\t\"\$3\"\\t\"\$4\"\\t\"\$10\"\\t\"\$11\"\\t\"\$6\"\\t\"\$7}\' >> simulation.csv\n";
+print $simulateh "paste $options{'vcf1Name'}/Fear2016.snp $options{'vcf2Name'}/Fear2016.snp |awk \'{print \$1\"\\t\"\$2\"\\t\"\$3\"\\t\"\$4\"\\t\"\$10\"\\t\"\$11\"\\t\"\$6\"\\t\"\$7}\' >> simulation.csv\n";
 close $simulateh;
 $cmd.="sh $options{'outDir'}/qsub-simulate.sh\n";
 if($mode eq "run"){print "#Generating shell for each alignment. You may qsub each shell.\n";}
